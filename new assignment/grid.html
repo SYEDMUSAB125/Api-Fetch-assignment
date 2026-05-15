@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grid Layout Tutorial</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+  margin:0;
+  background:#f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+/* MAIN GRID */
+.container{
+  display:grid;
+
+  /* sidebar + main */
+  grid-template-columns: 250px 1fr;
+
+  /* 4 rows layout */
+  grid-template-rows: 200px auto 1fr 60px;
+
+  height:100vh;   /* IMPORTANT: full screen fit */
+  gap:15px;
+
+  padding:15px;
+  box-sizing:border-box;
+}
+
+/* COMMON BOX */
+.box{
+  border-radius:10px;
+  padding:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  background:white;
+}
+
+/* SIDEBAR */
+.sidebar{
+  grid-row: 1 / -1;   /* full height sidebar */
+  background:#222;
+  color:white;
+  overflow:auto;
+}
+
+/* HERO */
+.hero{
+  background:#4f46e5;
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:28px;
+  font-weight:bold;
+
+  height:100%;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  gap:10px;
+  overflow:auto;
+}
+
+.gallery-item{
+  background:#ddd;
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap:10px;
+  overflow:auto;
+}
+
+.card{
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+.footer{
+  background:#111;
+  color:white;
+  text-align:center;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .container{
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+    height:auto;
+  }
+
+  .sidebar{
+    grid-row:auto;
+  }
+}
+
+    .sidebar h2{
+      margin-bottom:20px;
+    }
+
+    .sidebar ul{
+      list-style:none;
+    }
+
+    .sidebar ul li{
+      margin:15px 0;
+    }
+
+    /* HERO SECTION */
+    .hero{
+      background:#4f46e5;
+      color:white;
+      height:200px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:32px;
+      font-weight:bold;
+    }
+
+    /* GALLERY GRID */
+    .gallery{
+      display:grid;
+
+      /* responsive columns */
+      grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+
+      gap:15px;
+    }
+
+    .gallery-item{
+      background:#ddd;
+      height:120px;
+      border-radius:10px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
+    }
+
+    /* CARD SECTION */
+    .cards{
+      display:grid;
+
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+
+      gap:20px;
+    }
+
+    .card{
+      background:#fff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .card h3{
+      margin-bottom:10px;
+    }
+
+    /* FOOTER */
+    .footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+
+      .container{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        grid-row:auto;
+      }
+
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar box">
+      <h2>Sidebar</h2>
+
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+        <li>Gallery</li>
+        <li>Contact</li>
+      </ul>
+    </aside>
+
+    <!-- HERO SECTION -->
+    <section class="hero box">
+      Hero Banner Section
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+
+      <div class="gallery-item">Image 1</div>
+      <div class="gallery-item">Image 2</div>
+      <div class="gallery-item">Image 3</div>
+      <div class="gallery-item">Image 4</div>
+
+    </section>
+
+    <!-- CARDS -->
+    <section class="cards">
+
+      <div class="card">
+        <h3>Card 1</h3>
+        <p>Basic card layout using CSS Grid.</p>
+      </div>
+
+      <div class="card">
+        <h3>Card 2</h3>
+        <p>Responsive design with auto-fit concept.</p>
+      </div>
+
+      <div class="card">
+        <h3>Card 3</h3>
+        <p>Easy structure for beginners.</p>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer box">
+      Footer Section
+    </footer>
+
+  </div>
+
+</body>
+</html>
